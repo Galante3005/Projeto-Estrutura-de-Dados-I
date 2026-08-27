@@ -7,9 +7,5 @@ public class Main {
     System.out.println(solicitacao.getPrioridade());
     System.out.println(solicitacao.getResponsavel());
     System.out.println(solicitacao.getDataHoraAbertura());
-
-
-
-
     }
 }
