@@ -72,6 +72,18 @@ public class Solicitacoes {
         return this.dataHoraAbertura;
     }
 
+    /* Função Abaixo EXTREMAMENTE IMPORTANTE!
+    a função basicamente impede o usuário de finalizar uma solicitação que nao esteja em andamento.
+    se o status é diferente de em andamento, e caso seja ele nega a possibilidade
+    de finalizar a solicitação.
+    */
+    public void finalizarAtendimento(){
+        if (!"EM_ATENDIMENTO".equals(this.status)){
+            throw new IllegalStateException("Somente solicitações em atendimento podem ser finalizadas.");
+        }
+        this.status = "FINALIZADO";
+    }
+
 
     /* Função Abaixo EXTREMAMENTE IMPORTANTE!
      a função basicamente impede o usuário de aceitar resolver uma solicitação

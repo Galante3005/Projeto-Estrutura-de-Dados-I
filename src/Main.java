@@ -10,5 +10,8 @@ public class Main {
     System.out.println(solicitacao.getStatus());
     System.out.println(solicitacao.getResponsavel());
     solicitacao.iniciarAtendimento("Carlos");
+    solicitacao.iniciarAtendimento("Carlos");
+    solicitacao.finalizarAtendimento();
+    System.out.println(solicitacao.getStatus());
     }
 }
