@@ -1,17 +1,26 @@
+/* o main até o momento pode ignorar, eu to utilizando ele só para
+fazer os testes das funções que eu to implementando.
+ */
+
+
 public class Main {
     public static void main(String[] args) {
-    Solicitacoes solicitacao = new Solicitacoes(101, "Ana", "A impressora não liga", "impressora", 3);
-    System.out.println(solicitacao.getSolicitante());
-    System.out.println(solicitacao.getStatus());
-    System.out.println(solicitacao.getCodigo());
-    System.out.println(solicitacao.getPrioridade());
-    System.out.println(solicitacao.getResponsavel());
-    System.out.println(solicitacao.getDataHoraAbertura());
-    System.out.println(solicitacao.getStatus());
-    System.out.println(solicitacao.getResponsavel());
-    solicitacao.iniciarAtendimento("Carlos");
-    solicitacao.iniciarAtendimento("Carlos");
-    solicitacao.finalizarAtendimento();
-    System.out.println(solicitacao.getStatus());
+        Fila<Solicitacoes> fila = new Fila<>(10);
+
+        Solicitacoes solicitacao = new Solicitacoes(
+                101,
+                "Ana",
+                "A impressora não liga",
+                "Impressora",
+                2
+        );
+
+        System.out.println("Fila vazia antes da inserção: "
+                + fila.estaVazia());
+
+        fila.inserir(solicitacao);
+
+        System.out.println("Fila vazia depois da inserção: "
+                + fila.estaVazia());
     }
 }
