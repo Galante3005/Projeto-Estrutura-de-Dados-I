@@ -49,4 +49,34 @@ public class Fila<T> {
         }
         quantidade = quantidade + 1;
     }
+
+    public int getQuantidade() {
+        return this.quantidade;
+    }
+    public T consultarProximo(){
+        if (estaVazia()){
+            throw new IllegalStateException("A fila está vazia.");
+        }
+        else {
+            return elementos[inicio];
+        }
+    }
+
+    /*Função também importante.
+   Remove e retorna o primeiro elemento da fila;
+   Atualiza o início e a quantidade de elementos.
+    */
+    public T removerProximo(){
+        if (estaVazia()){
+         throw new IllegalStateException("A fila está vazia.");
+        }
+        T removido= elementos[inicio];
+        elementos[inicio]  = null;
+        inicio = inicio + 1;
+        if (inicio == elementos.length){
+            inicio = 0;
+        }
+        quantidade = quantidade - 1;
+        return removido;
+    }
 }

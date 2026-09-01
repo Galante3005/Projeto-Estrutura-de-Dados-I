@@ -19,6 +19,15 @@ public class Main {
                 + fila.estaVazia());
 
         fila.inserir(solicitacao);
+        Solicitacoes proxima = fila.consultarProximo();
+
+        System.out.println(
+                "Próximo solicitante: " + proxima.getSolicitante()
+        );
+
+        System.out.println(
+                "Quantidade após consultar: " + fila.getQuantidade()
+        );
 
         System.out.println("Fila vazia depois da inserção: "
                 + fila.estaVazia());
