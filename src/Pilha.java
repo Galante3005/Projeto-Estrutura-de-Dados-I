@@ -1,7 +1,6 @@
 public class Pilha<T> {
     private T[] elementos;
-    private int inicio;
-    private int fim;
+    private int topo;
     private int quantidade;
 
     /*Garante que, seja impossível inicializar
@@ -44,7 +43,7 @@ public void empilhar(T elemento){
 }
 
 public int getQuantidade(){
-    retutn this.quantidade;
+    return this.quantidade;
 }
 
 public T consultarTopo(){
