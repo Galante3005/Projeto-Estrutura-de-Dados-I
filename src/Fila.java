@@ -108,4 +108,39 @@ public class Fila<T> {
         return elementos[ultimo];
     }
 
+
+    /* Importantissímo!
+    Como explicado pelo professor, toString não se faz extremamente necessário
+    nesse projeto, visto sua magnitude.
+    Entretanto, toString serve para transformar outros tipo de dados em Strings, o que
+    ajuda em casos de grandes lotes não correrem risco de serem alterados por não
+    serem string.
+    Devido a utilização profissional e futura, foi-se decidido implementá-lo.
+     */
+    @Override
+    public String toString(){
+        StringBuilder texto = new StringBuilder();
+        texto.append("[Fila] quantidade: ");
+        texto.append(quantidade);
+        texto.append(", capacidade: ");
+        texto.append(elementos.length);
+        if (!estaVazia()){
+            texto.append(", primeiro: ");
+            texto.append(consultarProximo());
+            texto.append(", último: ");
+            texto.append(consultarUltimo());
+        }
+
+        texto.append("\nConteúdo da fila: [ ");
+        for (int i = 0;i < quantidade; i++){
+        int posicao;
+        posicao = (inicio + i) % elementos.length;
+        texto.append("[");
+        texto.append(elementos[posicao]);
+        texto.append("]");
+        }
+        texto.append(" ]");
+        return texto.toString();
+    }
+
 }
