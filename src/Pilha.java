@@ -61,7 +61,7 @@ Atualiza o topo e a quantidade de elementos. */
 
 public T desempilhar(){
     if(estaVazia()){
-        throw new IllegalArgumentException("A pilha esta vazia.")
+        throw new IllegalArgumentException("A pilha esta vazia.");
     }
     T removido = elementos[topo];
     elementos[topo] = null;
