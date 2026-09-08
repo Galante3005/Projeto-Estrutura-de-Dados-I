@@ -3,6 +3,10 @@ public class Fila<T> {
     private int inicio;
     private int fim;
     private int quantidade;
+    private static final int CAPACIDADE_PADRAO = 100;
+    public Fila(){
+        this(CAPACIDADE_PADRAO);
+    }
 
 
     /*Garante que, seja impossível inicializar
@@ -26,6 +30,7 @@ public class Fila<T> {
     public boolean estaVazia(){
         return quantidade == 0;
     }
+
     /* Semelhante ao estaVazia, porém compara quando a quantidade atinge
     a capacidade do vetor.
      */
@@ -70,7 +75,7 @@ public class Fila<T> {
         if (estaVazia()){
          throw new IllegalStateException("A fila está vazia.");
         }
-        T removido= elementos[inicio];
+        T removido = elementos[inicio];
         elementos[inicio]  = null;
         inicio = inicio + 1;
         if (inicio == elementos.length){
@@ -79,4 +84,28 @@ public class Fila<T> {
         quantidade = quantidade - 1;
         return removido;
     }
+
+
+    /*
+    Verifica se a fila está vazia antes de consultar o último elemento.
+    Como fim aponta para a próxima posição livre, o último elemento
+    normalmente está na posição fim - 1.
+    Se fim for igual a zero, significa que o índice deu a volta no
+    vetor circular. Nesse caso, o último elemento está na posição
+     elementos.length - 1.
+    */
+    public T consultarUltimo(){
+        if (estaVazia()){
+            throw new IllegalStateException("A fila está vazia!");
+        }
+        int ultimo;
+        if (fim != 0){
+            ultimo = fim -1;
+        }
+        else {
+            ultimo = elementos.length -1;
+        }
+        return elementos[ultimo];
+    }
+
 }
