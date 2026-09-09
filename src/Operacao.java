@@ -7,7 +7,7 @@ public class Operacao{
     a uma solicitação real do sistema.
      */
     
-public Operacao(String tipo, Solicitacao solicitacao){
+public Operacao(String tipo, Solicitacoes solicitacao){
 
     if(tipo == null || tipo.isBlank()){
         throw new IllegalArgumentException("O tipo da operacao deve ser preenchido.");
