@@ -81,7 +81,7 @@ public class Solicitacoes {
         if (!"EM_ATENDIMENTO".equals(this.status)){
             throw new IllegalStateException("Somente solicitações em atendimento podem ser finalizadas.");
         }
-        this.status = "FINALIZADO";
+        this.status = "CONCLUIDA";
     }
 
 

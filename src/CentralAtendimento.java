@@ -48,6 +48,13 @@ public class CentralAtendimento {
     public int getQuantidadeOperacoes(){
         return historicoOperacoes.getQuantidade();
     }
+    public String exibirHistoricoOperacoes(){
+        return historicoOperacoes.toString();
+    }
+    public Operacao removerUltimaOperacao(){
+        return historicoOperacoes.desempilhar();
+    }
+
 }
 
 

@@ -69,4 +69,13 @@ public T desempilhar(){
     quantidade = quantidade - 1;
     return removido;
 }
+@Override
+    public String toString(){
+    StringBuilder texto= new StringBuilder("Histórico de operações:\n");
+    for (int i = topo;i>=0; i--){
+    texto.append(elementos[i]);
+    texto.append("\n");
+    }
+    return texto.toString();
+}
 }
