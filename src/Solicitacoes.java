@@ -101,6 +101,9 @@ public class Solicitacoes {
             this.responsavel = responsavel;
             this.status = "EM_ATENDIMENTO";
         }
-
-
+@Override
+    public String toString(){
+    return "Código: " + codigo + " | Solicitante: " + solicitante + " | Descricao: " + descricao + " | Categoria: " +
+            categoria + " | Prioridade: " + prioridade + " | Status: " + status + " | Responsável: " + responsavel;
+}
 }
