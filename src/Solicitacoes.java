@@ -22,7 +22,7 @@ public class Solicitacoes {
             throw new IllegalArgumentException("A categoria deve ser preenchida.");
         }
         if (descricao == null || descricao.isBlank()) {
-            throw new IllegalArgumentException("A descricao deve ser preenchida.");
+            throw new IllegalArgumentException("A descrição deve ser preenchida.");
         }
         if (prioridade > 5 || prioridade < 1) {
             throw new IllegalArgumentException("A prioridade deve ser de 1 a 5");
