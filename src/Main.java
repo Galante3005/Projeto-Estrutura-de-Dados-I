@@ -1,42 +1,39 @@
-/* o main até o momento pode ignorar, eu to utilizando ele só para
-fazer os testes das funções que eu to implementando.
- */
 import java.util.Locale;
-
-public class ExemploLocale {
-    public static void main(String[] args) {
-        Locale.setDefault(new Locale("pt", "BR"));
-    }
-}
-
 
 public class Main {
     public static void main(String[] args) {
-        Fila<Solicitacoes> fila = new Fila<>(10);
+        Locale.setDefault(new Locale("pt", "BR"));
 
-        Solicitacoes solicitacao = new Solicitacoes(
-                101,
-                "Ana",
-                "A impressora não liga",
-                "Impressora",
-                2
-        );
+        CentralAtendimento central = new CentralAtendimento(); // ajuste aqui se o construtor pedir capacidade da Fila/Pilha
 
-        System.out.println("Fila vazia antes da inserção: "
-                + fila.estaVazia());
+        String[] nomes = {
+            "Rafael Martins", "Beatriz Alves", "Thiago Nogueira", "Camila Duarte", "Lucas Pereira",
+            "Fernanda Ramos", "Rodrigo Teixeira", "Juliana Brito", "Marcos Vinícius", "Patrícia Gomes"
+        };
+        String[] descricoes = {
+            "Sinal de internet caindo toda hora", "Fatura com valor divergente", "Aplicativo travando ao abrir",
+            "Solicitação de segunda via de boleto", "Equipamento com defeito de fábrica",
+            "Cobrança de serviço não contratado", "Lentidão no atendimento pelo chat", "Erro no cadastro do cliente",
+            "Pedido de cancelamento de plano", "Falha na instalação do serviço"
+        };
+        String[] categorias = {
+            "Suporte Técnico", "Financeiro", "Suporte Técnico", "Financeiro", "Suporte Técnico",
+            "Financeiro", "Comercial", "Suporte Técnico", "Comercial", "Suporte Técnico"
+        };
+        int[] prioridades = { 4, 2, 5, 1, 3, 2, 1, 5, 3, 4 };
 
-        fila.inserir(solicitacao);
-        Solicitacoes proxima = fila.consultarProximo();
+        int cadastradas = 0;
+        for (int i = 0; i < nomes.length; i++) {
+            try {
+                central.cadastrarSolicitacao(nomes[i], descricoes[i], categorias[i], prioridades[i], "");
+                cadastradas++;
+            } catch (Fila.FilaCheiaException | Pilha.PilhaCheiaException e) {
+                System.out.println("Não foi possível cadastrar mais solicitações: " + e.getMessage());
+                break;
+            }
+        }
 
-        System.out.println(
-                "Próximo solicitante: " + proxima.getSolicitante()
-        );
-
-        System.out.println(
-                "Quantidade após consultar: " + fila.getQuantidade()
-        );
-
-        System.out.println("Fila vazia depois da inserção: "
-                + fila.estaVazia());
+        System.out.println(cadastradas + " solicitação(ões) de teste cadastrada(s) com sucesso!");
     }
+}
 }
