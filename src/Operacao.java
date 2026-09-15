@@ -10,13 +10,13 @@ public class Operacao{
 public Operacao(String tipo, Solicitacoes solicitacao){
 
     if(tipo == null || tipo.isBlank()){
-        throw new IllegalArgumentException("O tipo da operacao deve ser preenchido.");
+        throw new IllegalArgumentException("O tipo da operação deve ser preenchido.");
     }
     if(!tipo.equals("CADASTRO") && !tipo.equals("ATENDIMENTO") && !tipo.equals("CANCELAMENTO")){
-        throw new IllegalArgumentException("Tipo de operacao invalido.");
+        throw new IllegalArgumentException("Tipo de operação inválido.");
     }
     if(solicitacao == null){
-        throw new IllegalArgumentException("A operacao deve ser associada a uma solicitacao");
+        throw new IllegalArgumentException("A operação deve ser associada a uma solicitação");
     }
     
 this.tipo = tipo;
