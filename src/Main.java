@@ -1,6 +1,13 @@
 /* o main até o momento pode ignorar, eu to utilizando ele só para
 fazer os testes das funções que eu to implementando.
  */
+import java.util.Locale;
+
+public class ExemploLocale {
+    public static void main(String[] args) {
+        Locale.setDefault(new Locale("pt", "BR"));
+    }
+}
 
 
 public class Main {
