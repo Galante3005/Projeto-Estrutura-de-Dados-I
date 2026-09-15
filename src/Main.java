@@ -4,10 +4,10 @@ public class Main {
     public static void main(String[] args) {
         Locale.setDefault(new Locale("pt", "BR"));
 
-        CentralAtendimento central = new CentralAtendimento(); // ajuste aqui se o construtor pedir capacidade da Fila/Pilha
+        CentralAtendimento central = new CentralAtendimento();
 
         String[] nomes = {
-            "Rafael Martins", "Beatriz Alves", "Thiago Nogueira", "Camila Duarte", "Lucas Pereira",
+            "Valter Augusto", "Gustavo Domingues", "Thiago Nogueira", "Camila Duarte", "Lucas Pereira",
             "Fernanda Ramos", "Rodrigo Teixeira", "Juliana Brito", "Marcos Vinícius", "Patrícia Gomes"
         };
         String[] descricoes = {
@@ -24,16 +24,11 @@ public class Main {
 
         int cadastradas = 0;
         for (int i = 0; i < nomes.length; i++) {
-            try {
-                central.cadastrarSolicitacao(nomes[i], descricoes[i], categorias[i], prioridades[i], "");
-                cadastradas++;
-            } catch (Fila.FilaCheiaException | Pilha.PilhaCheiaException e) {
-                System.out.println("Não foi possível cadastrar mais solicitações: " + e.getMessage());
-                break;
-            }
+            central.cadastrarSolicitacao(nomes[i], descricoes[i], categorias[i], prioridades[i]);
+            cadastradas++;
         }
 
         System.out.println(cadastradas + " solicitação(ões) de teste cadastrada(s) com sucesso!");
+        System.out.println(central.consultarFilaAguardando());
     }
-}
 }
