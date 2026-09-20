@@ -77,12 +77,12 @@ public class Menu {
 
         int prioridade;
         do {
-            prioridade = lerInteiro("Qual o grau de prioridade (de 1 a 3): ");
+            prioridade = lerInteiro("Qual o grau de prioridade (de 1 a 5): ");
 
-            if (prioridade < 1 || prioridade > 3) {
-                System.out.println("A prioridade deve estar entre 1 e 3.");
+            if (prioridade < 1 || prioridade > 5) {
+                System.out.println("A prioridade deve estar entre 1 e 5.");
             }
-        } while (prioridade < 1 || prioridade > 3);
+        } while (prioridade < 1 || prioridade > 5);
 
         Solicitacoes novaSolicitacao = central.cadastrarSolicitacao(
                 solicitante,
