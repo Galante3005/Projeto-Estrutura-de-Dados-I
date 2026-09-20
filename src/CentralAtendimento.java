@@ -18,7 +18,7 @@ public class CentralAtendimento {
     proximoCodigo = proximoCodigo + 1;
     return novaSolicitacao;
     }
-    public Solicitacoes consultarProxSolicitacao() {
+    public Solicitacoes consultarProximaSolicitacao() {
     return filaAguardando.consultarProximo();
     }
     public boolean filaEstaVazia(){
