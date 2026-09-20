@@ -24,6 +24,9 @@ public class CentralAtendimento {
     public boolean filaEstaVazia(){
         return filaAguardando.estaVazia();
     }
+    public boolean filaEstaCheia() {
+    return filaAguardando.estaCheia();
+}
     public int getQuantidadeAguardando(){
        return filaAguardando.getQuantidade();
     }
@@ -45,6 +48,9 @@ public class CentralAtendimento {
     public boolean historicoEstaVazio(){
         return historicoOperacoes.estaVazia();
     }
+    public boolean historicoEstaCheio() {
+    return historicoOperacoes.estaCheia();
+}
     public int getQuantidadeOperacoes(){
         return historicoOperacoes.getQuantidade();
     }
