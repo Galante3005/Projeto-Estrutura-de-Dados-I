@@ -42,6 +42,16 @@ if (historicoEstaCheio()) {
        return filaAguardando.getQuantidade();
     }
     public Solicitacoes iniciarProximoAtendimento(String responsavel){
+        if (filaEstaVazia()) {
+    throw new IllegalStateException(
+            "Não existem solicitações aguardando atendimento."
+    );
+}
+if (historicoEstaCheio()) {
+    throw new IllegalStateException(
+            "Não é possível atender: o histórico está cheio."
+    );
+}
         Solicitacoes proxima;
         proxima = filaAguardando.consultarProximo();
         proxima.iniciarAtendimento(responsavel);
