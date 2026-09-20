@@ -11,6 +11,17 @@ public class CentralAtendimento {
        this.proximoCodigo = 1;
     }
     public Solicitacoes cadastrarSolicitacao(String solicitante,String descricao, String categoria,int prioridade){
+        if (filaEstaCheia()) {
+    throw new IllegalStateException(
+            "Não é possível cadastrar: a fila está cheia."
+    );
+}
+
+if (historicoEstaCheio()) {
+    throw new IllegalStateException(
+            "Não é possível cadastrar: o histórico está cheio."
+    );
+}
     Solicitacoes novaSolicitacao = new Solicitacoes(proximoCodigo, solicitante, descricao, categoria, prioridade);
     filaAguardando.inserir(novaSolicitacao);
     Operacao operacaoCadastro = new Operacao("CADASTRO", novaSolicitacao);
