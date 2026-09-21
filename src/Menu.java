@@ -20,7 +20,7 @@ public class Menu {
         System.out.println("5 - Exibir quantidade de solicitações");
         System.out.println("6 - Consultar última operação");
         System.out.println("7 - Exibir histórico de operações");
-        System.out.println("8 - Desfazer última operação");
+        System.out.println("8 - Remover última operação do histórico");
         System.out.println("9 - Gerar solicitações automáticas");
         System.out.println("0 - Encerrar");
         System.out.println("========================================");
