@@ -71,6 +71,15 @@ public class Menu {
     }
 
     private void cadastrarSolicitacao() {
+        if (central.filaEstaCheia()) {
+    System.out.println("Não é possível cadastrar: a fila está cheia.");
+    return;
+}
+
+if (central.historicoEstaCheio()) {
+    System.out.println("Não é possível cadastrar: o histórico está cheio.");
+    return;
+}
         String solicitante = lerTextoObrigatorio("Digite o nome do solicitante: ");
         String descricao = lerTextoObrigatorio("Descreva o problema: ");
         String categoria = lerTextoObrigatorio("Digite a categoria: ");
@@ -110,7 +119,11 @@ public class Menu {
             System.out.println("Não existem solicitações aguardando atendimento.");
             return;
         }
-
+if (central.historicoEstaCheio()) {
+    System.out.println("Não é possível atender: o histórico está cheio.");
+    return;
+}
+        
         String responsavel = lerTextoObrigatorio("Digite o nome do responsável: ");
         Solicitacoes solicitacao = central.iniciarProximoAtendimento(responsavel);
 
@@ -184,6 +197,15 @@ public class Menu {
 
         int cadastradas = 0;
         for (int i = 0; i < nomes.length; i++) {
+            if (central.filaEstaCheia()) {
+    System.out.println("Geração interrompida: a fila está cheia.");
+    break;
+}
+
+if (central.historicoEstaCheio()) {
+    System.out.println("Geração interrompida: o histórico está cheio.");
+    break;
+}
             central.cadastrarSolicitacao(nomes[i], descricoes[i], categorias[i], prioridades[i]);
             cadastradas++;
         }
