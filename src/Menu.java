@@ -70,6 +70,7 @@ public class Menu {
         } while (opcao != 0);
     }
 
+    /* Confere se há espaço antes de pedir os dados da solicitação. */
     private void cadastrarSolicitacao() {
         if (central.filaEstaCheia()) {
     System.out.println("Não é possível cadastrar: a fila está cheia.");
@@ -196,6 +197,8 @@ if (central.historicoEstaCheio()) {
         int[] prioridades = { 4, 2, 5, 1, 3, 2, 1, 5, 3, 4 };
 
         int cadastradas = 0;
+        
+        /* Se faltar espaço, interrompe a geração e mantém os cadastros já realizados. */
         for (int i = 0; i < nomes.length; i++) {
             if (central.filaEstaCheia()) {
     System.out.println("Geração interrompida: a fila está cheia.");
@@ -234,6 +237,7 @@ if (central.historicoEstaCheio()) {
 
             if (leitor.hasNextInt()) {
                 int numero = leitor.nextInt();
+                /* Consome a quebra de linha deixada pela leitura do número. */
                 leitor.nextLine();
                 return numero;
             }
