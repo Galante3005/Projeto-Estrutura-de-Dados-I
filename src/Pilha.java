@@ -2,7 +2,10 @@ public class Pilha<T> {
     private T[] elementos;
     private int topo;
     private int quantidade;
-
+    private static final int CAPACIDADE_PADRAO = 100;
+    public Pilha(){
+        this(CAPACIDADE_PADRAO);
+    
     /*Garante que, seja impossível inicializar
     uma pilha com a capacidade menor ou igual a 0*/
     
@@ -35,7 +38,7 @@ Avança o topo, para depois inserir o elemento. */
 
 public void empilhar(T elemento){
     if(estaCheia()){
-        throw new IllegalArgumentException ("A pilha esta cheia.");
+        throw new IllegalStateException ("A pilha esta cheia.");
     }
     topo = topo + 1;
     elementos[topo] = elemento;
@@ -48,7 +51,7 @@ public int getQuantidade(){
 
 public T consultarTopo(){
     if(estaVazia()){
-        throw new IllegalArgumentException("A pilha esta vazia.");
+        throw new IllegalStateException("A pilha esta vazia.");
     }
     else{
         return elementos[topo];
@@ -61,7 +64,7 @@ Atualiza o topo e a quantidade de elementos. */
 
 public T desempilhar(){
     if(estaVazia()){
-        throw new IllegalArgumentException("A pilha esta vazia.");
+        throw new IllegalStateException("A pilha esta vazia.");
     }
     T removido = elementos[topo];
     elementos[topo] = null;
