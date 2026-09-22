@@ -5,6 +5,7 @@ public class Pilha<T> {
     private static final int CAPACIDADE_PADRAO = 100;
     public Pilha(){
         this(CAPACIDADE_PADRAO);
+    }
     
     /*Garante que, seja impossível inicializar
     uma pilha com a capacidade menor ou igual a 0*/
